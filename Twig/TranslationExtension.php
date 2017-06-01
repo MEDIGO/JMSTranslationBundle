@@ -41,11 +41,8 @@ class TranslationExtension extends \Twig_Extension
         $visitors = array(
             new NormalizingNodeVisitor(),
             new RemovingNodeVisitor(),
+            new DefaultApplyingNodeVisitor(),
         );
-
-        if ($this->debug) {
-            $visitors[] = new DefaultApplyingNodeVisitor();
-        }
 
         return $visitors;
     }
